@@ -1,14 +1,11 @@
-def main():
-    print('Type some string to have it reversed and uppercase.\nType :q to exit.')
-    while True:
-        # get user input
-        txt = input("Your input string: ")
+import argparse
 
-        # program ending condition
-        if ':q' == txt:
-            break
-        # printing result in reversed order and in uppercase
-        print("Result", txt[::-1].upper())
+
+def main():
+    parser = argparse.ArgumentParser(description='Reverse and uppercase a text string using command line arguments.')
+    parser.add_argument('input_string', type=str, help='Input string to be processed.')
+    args = parser.parse_args()
+    print("Result:", args.input_string[::-1].upper())
 
 
 if __name__ == "__main__":
